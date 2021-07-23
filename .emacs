@@ -20,7 +20,8 @@
 (straight-use-package 'doom-modeline)
 (straight-use-package 'rust-mode)
 (straight-use-package 'smex)
-(straight-use-package 'eglot)
+(straight-use-package 'lsp-mode)
+(straight-use-package 'lsp-ui)
 (straight-use-package 'company)
 
 ;; themes
@@ -35,8 +36,7 @@
 ;; deadgrep
 (global-set-key (kbd "<f5>") #'deadgrep)
 ;; themes
-;(load-theme 'dracula t)
-(load-theme 'solarized-light t)
+(load-theme 'dracula t)
 					; cycle themes
 (fset 'my-toggle-themes
       (let ((toggle-var (make-symbol "toggle")))
@@ -73,12 +73,15 @@
 (helm-mode 1)
 ;; rust
 (setq rust-format-on-save t)
-
+(add-hook 'rust-mode-hook #'lsp)
+;; c/c++
+(add-hook 'c++-mode-hook #'lsp)
 ;;;; config formatting
 ;; 4 spaces and
 (setq-default c-basic-offset 4)
 ;; Tabs https://www.emacswiki.org/emacs/TabsAreEvil
 (setq-default indent-tabs-mode nil)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
