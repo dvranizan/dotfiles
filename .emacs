@@ -57,6 +57,8 @@
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
 ;;;; config tools
+;; clangd
+(setq lsp-clients-clangd-args '("-j=4" "-background-index" "-log=error"))
 ;; TRAMP
 (setq explicit-shell-file-name "/bin/bash")
 ;; Line Modes
