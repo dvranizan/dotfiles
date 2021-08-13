@@ -59,6 +59,9 @@
 ;;;; config tools
 ;; TRAMP
 (setq explicit-shell-file-name "/bin/bash")
+;;; cannot set tramp-remote-path until tramp has been loaded, due to bug
+(custom-set-variables
+ '(tramp-remote-path (quote (tramp-own-remote-path)) nil (tramp)))
 ;; Line Modes
 (global-hl-line-mode +1)
 (global-display-line-numbers-mode)
