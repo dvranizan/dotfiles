@@ -73,6 +73,10 @@
 (menu-bar-mode -1)
 ;; Helm
 (helm-mode 1)
+                                        ; helm default highlight color is invis
+(set-face-attribute 'helm-selection nil 
+                    :background "purple"
+                    :foreground "black")
 ;; rust
 (setq rust-format-on-save t)
 (add-hook 'rust-mode-hook #'lsp)
