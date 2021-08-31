@@ -23,6 +23,7 @@
 (straight-use-package 'lsp-mode)
 (straight-use-package 'lsp-ui)
 (straight-use-package 'company)
+(straight-use-package 'shackle)
 
 ;; themes
 (straight-use-package 'solarized-theme)
@@ -80,6 +81,10 @@
 (set-face-attribute 'helm-selection nil 
                     :background "purple"
                     :foreground "black")
+                                        ; shackle helm window
+(setq helm-display-function 'pop-to-buffer) ; make helm play nice
+(setq shackle-rules '(("\\`\\*helm.*?\\*\\'" :regexp t :align t :size 0.4)))
+
 ;; rust
 (setq rust-format-on-save t)
 (add-hook 'rust-mode-hook #'lsp)
