@@ -24,6 +24,7 @@
 (straight-use-package 'lsp-ui)
 (straight-use-package 'company)
 (straight-use-package 'shackle)
+(straight-use-package 'powershell)
 
 ;; themes
 (straight-use-package 'solarized-theme)
@@ -33,9 +34,9 @@
 ;; Swap c/h
 (add-hook 'c-mode-common-hook
 	  (lambda()
-	    (local-set-key (kbd "C-c f") 'ff-find-other-file)))
+	    (local-set-key (kbd "C-c o") 'ff-find-other-file)))
 ;; deadgrep
-(global-set-key (kbd "<f5>") #'deadgrep)
+(global-set-key (kbd "C-c f") #'deadgrep)
 ;; themes
 (load-theme 'dracula t)
 					; cycle themes
@@ -62,6 +63,12 @@
 (setq lsp-clients-clangd-args '("-j=4" "-background-index" "-log=error"))
 ;; TRAMP
 (setq explicit-shell-file-name "/bin/bash")
+                                        ; speed it up
+(setq vc-ignore-dir-regexp
+      (format "\\(%s\\)\\|\\(%s\\)"
+              vc-ignore-dir-regexp
+              tramp-file-name-regexp))
+(setq remote-file-name-inhibit-cache nil)
 ;;; cannot set tramp-remote-path until tramp has been loaded, due to bug
 (custom-set-variables
  '(tramp-remote-path (quote (tramp-own-remote-path)) nil (tramp)))
