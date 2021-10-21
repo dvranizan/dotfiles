@@ -25,6 +25,7 @@
 (straight-use-package 'company)
 (straight-use-package 'shackle)
 (straight-use-package 'powershell)
+(straight-use-package 'dumb-jump)
 
 ;; themes
 (straight-use-package 'solarized-theme)
@@ -91,7 +92,8 @@
                                         ; shackle helm window
 (setq helm-display-function 'pop-to-buffer) ; make helm play nice
 (setq shackle-rules '(("\\`\\*helm.*?\\*\\'" :regexp t :align t :size 0.4)))
-
+;; dumb-jump
+(add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
 ;; rust
 (setq rust-format-on-save t)
 (add-hook 'rust-mode-hook #'lsp)
