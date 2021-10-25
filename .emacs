@@ -26,6 +26,8 @@
 (straight-use-package 'shackle)
 (straight-use-package 'powershell)
 (straight-use-package 'dumb-jump)
+(straight-use-package 'quelpa)
+(quelpa '(blamer :fetcher github :repo "artawower/blamer.el"))
 
 ;; themes
 (straight-use-package 'solarized-theme)
@@ -94,6 +96,8 @@
 (setq shackle-rules '(("\\`\\*helm.*?\\*\\'" :regexp t :align t :size 0.4)))
 ;; dumb-jump
 (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
+;; blamer
+(global-blamer-mode 1)
 ;; rust
 (setq rust-format-on-save t)
 (add-hook 'rust-mode-hook #'lsp)
