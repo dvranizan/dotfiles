@@ -1,0 +1,4 @@
+# enable native comp and gtk3/wayland support
+# remember to use gcc-10 for libgccjit
+
+./configure --with-pgtk --with-native-compilation --with-json CFLAGS="-O3 -mtune=native -march=native -fomit-frame-pointer" --with-jpg --with-tiff
