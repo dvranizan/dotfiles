@@ -14,6 +14,9 @@
 ;;;; package management
 ;; tools
 (straight-use-package 'helm)
+(straight-use-package 'projectile)
+(straight-use-package 'helm-projectile)
+(straight-use-package 'helm-rg)
 (straight-use-package 'magit)
 (straight-use-package 'rainbow-delimiters)
 (straight-use-package 'deadgrep)
@@ -57,6 +60,8 @@
 (global-set-key (kbd "C-c v") 'my-toggle-themes)
 ;; Helm
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-c f") 'projectile-find-file)
+(global-set-key (kbd "C-c b") 'projectile-find-file-dwim)
 ;; Smex
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
@@ -95,6 +100,10 @@
 (setq helm-display-function 'pop-to-buffer) ; make helm play nice
 (shackle-mode 1)
 (setq shackle-rules '(("\\`\\*helm.*?\\*\\'" :regexp t :align t :ratio 0.4)))
+;; projectile
+(projectile-global-mode)
+(setq projectile-completion-system 'helm)
+(helm-projectile-on)
 ;; dumb-jump
 (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
 ;; blamer
